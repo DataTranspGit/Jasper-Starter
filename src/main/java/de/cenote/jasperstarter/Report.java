@@ -343,7 +343,10 @@ public class Report {
             } catch (SQLException ex) {
                 throw new IllegalArgumentException("Unable to connect to database: " + ex.getMessage(), ex);
             } catch (JRException e) {
-                throw new IllegalArgumentException("Error filling report" + e.getMessage(), e);
+            	if (e.getCause() != null)
+                   throw new IllegalArgumentException("Error filling report" + e.getCause().getMessage(), e);
+            	else
+                   throw new IllegalArgumentException("Error filling report" + e.getMessage(), e);
             } catch (ClassNotFoundException e) {
                 throw new IllegalArgumentException("Unable to load driver: " + e.getMessage(), e);
             } finally {

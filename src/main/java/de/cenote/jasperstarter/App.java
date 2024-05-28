@@ -128,7 +128,10 @@ public class App {
             Thread.currentThread().interrupt();
             System.exit(1);
         } catch (JRException ex) {
-            errSink.println(ex.getMessage());
+        	if (ex.getCause() != null)
+                errSink.println(ex.getCause().getMessage());
+        	else
+               errSink.println(ex.getMessage());
             System.exit(1);
         }
     }
