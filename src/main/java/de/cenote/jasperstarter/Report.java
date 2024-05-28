@@ -659,10 +659,8 @@ public class Report {
                 } catch (Exception e) {
                     throw new IllegalArgumentException("Wrong report param format! " + p, e);
                 }
-                if (!jrParameters.containsKey(paramName)) {
-                    throw new IllegalArgumentException("Parameter '"
-                            + paramName + "' does not exist in report!");
-                }
+                if (!jrParameters.containsKey(paramName))
+                   continue;
 
                 JRParameter reportParam = jrParameters.get(paramName);
 
