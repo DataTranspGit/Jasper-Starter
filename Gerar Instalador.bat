@@ -1,0 +1,1 @@
+mvn package -P release,windows-setup,snapshot -D skipTests
