@@ -1,1 +1,1 @@
-mvn package -P release,windows-setup,snapshot -D skipTests
+mvn package -P release,windows-setup,snapshot -DskipTests -Dmaven.javadoc.skip=true
